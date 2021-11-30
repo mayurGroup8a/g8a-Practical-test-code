@@ -2823,19 +2823,20 @@ theme.Product = (function() {
       $.extend(theme.strings, theme.productStrings);
     },
 
-    _initBreakpoints: function() {
+   _initBreakpoints: function() {
       var self = this;
 
       enquire.register(this.settings.mediaQuerySmall, {
         match: function() {
-          // initialize thumbnail slider on mobile if more than three thumbnails
-          if ($(self.selectors.productThumbImages).length > 3) {
+          // initialize thumbnail slider on mobile if more than four thumbnails
+          /*
+          if ($(self.selectors.productThumbImages).length > 4) {
             self._initThumbnailSlider();
           }
-
+          */
           // destroy image zooming if enabled
           if (self.settings.zoomEnabled) {
-            $(self.selectors.productImageWraps).each(function() {
+            $(self.selectors.imageZoomWrapper).each(function() {
               _destroyZoom(this);
             });
           }
@@ -2843,9 +2844,11 @@ theme.Product = (function() {
           self.settings.bpSmall = true;
         },
         unmatch: function() {
+          /*
           if (self.settings.sliderActive) {
             self._destroyThumbnailSlider();
           }
+          */
 
           self.settings.bpSmall = false;
         }
@@ -2854,12 +2857,15 @@ theme.Product = (function() {
       enquire.register(this.settings.mediaQueryMediumUp, {
         match: function() {
           if (self.settings.zoomEnabled) {
-            $(self.selectors.productImageWraps).each(function() {
+            $(self.selectors.imageZoomWrapper).each(function() {
               _enableZoom(this);
             });
           }
         }
       });
+          if ($(self.selectors.productThumbImages).length > 3) {
+		      this._initThumbnailSlider()
+          }
     },
 
     _initVariants: function() {
@@ -3000,9 +3006,11 @@ theme.Product = (function() {
         nextArrow: '.thumbnails-slider__next--' + this.settings.sectionId,
         responsive: [
           {
-            breakpoint: 321,
+            breakpoint: 749,
             settings: {
-              slidesToShow: 3
+              slidesToShow: 1, 
+              vertical: true,
+verticalSwiping: true
             }
           }
         ]

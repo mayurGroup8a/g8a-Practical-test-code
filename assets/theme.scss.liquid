@@ -3488,7 +3488,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   }
   .thumbnails-slider--active {
     .product-single__thumbnails {
-      display: none;
+/*       display: none; */
       &.slick-initialized,
       .ie9 & {
         display: block;
@@ -3498,7 +3498,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
     }
   }
   .product-single__photos {
-    position: relative;
+/*     position: relative; */
   }
   .thumbnails-wrapper {
     position: relative;
@@ -6519,3 +6519,127 @@ $toolbar-height-small: 46px;
   }
 }
 
+/*================ Product Image Slider ================*/
+
+@include media-query($medium-up) { 
+.no-clear {
+clear: none !important; 
+}
+
+.thumbnails-slider_prev.thumbnails-slider_prev--product-template {
+display: inline-block;
+position: absolute;
+left: -9%;
+top: 60%;
+transform: translateY(-60%);
+z-index: 10000;
+padding-left: 0;
+}
+
+.thumbnails-slider_next.thumbnails-slider_next--product-template {
+display: inline-block;
+position: absolute;
+right: -9%;
+top: 60%;
+transform: translateY(-60%);
+z-index: 10000;
+}
+
+.product-single__photos {
+/* position: relative;  */
+padding-left: 0;
+}
+
+.product-single__thumbnails-item.js.no-clear.slick-slide.slick-active {
+padding-top: 0;
+}
+
+.thumbnails-wrapper.thumbnails-slider--active {
+position: relative;
+}
+
+.left--arrow {
+position: absolute;
+top: 60%;
+transform: translateY(-60%);
+left: -9%;
+z-index: 10000;
+}
+
+.right--arrow {
+position: absolute;
+top: 60%;
+transform: translateY(-60%);
+right: -9%;
+z-index: 10000;
+}
+
+.slick-hidden { 
+display: none !important; 
+}
+
+.slick-track {
+margin-top: 10px;
+}
+
+.thumbnails-slider--active {
+max-width: 92%;
+margin: 0 auto;
+}
+
+.product-single__thumbnail {
+margin: 3px 8px;
+}
+}
+
+.thumbnails-slider__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .thumbnails-slider__prev {
+    left: -50px;
+  }
+
+  .thumbnails-slider__next {
+    right: -50px;
+  }
+
+
+@media screen and (max-width: 749px) {
+  .thumbnails-slider__prev {
+    left: -20px;
+  }
+
+  .thumbnails-slider__next {
+    right: -20px;
+  }
+}
+
+
+
+
+/* thumbnail slider */
+@media screen and (max-width: 749px) {
+/* .photos {
+    display: -webkit-flex;
+    display: flex;
+}
+
+.photos__item.photos__item--main {
+    width: 75%;
+    height: auto;
+    -webkit-order: 2;
+    order: 2;
+}
+.photos__item.photos__item--thumbs {
+    order: 2;
+    width: 26%;
+    height: auto;
+    -webkit-order: 1;
+    order: 1;
+} */
+}
+
+/*  //*/
